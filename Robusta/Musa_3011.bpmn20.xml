@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://flowable.org/test">
+  <process id="Musa3011" name="Musa 3011" isExecutable="true">
+    <dataObject id="minBpPriority" name="minBpPriority" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value>50</flowable:value>
+      </extensionElements>
+    </dataObject>
+    <dataObject id="humanEffort" name="humanEffort" itemSubjectRef="xsd:string">
+      <extensionElements>
+        <flowable:value>0</flowable:value>
+      </extensionElements>
+    </dataObject>
+    <serviceTask id="sid-32AFDA4F-7CC1-4AE2-ABCB-462FD3EA0C3D" name="Open TCMB" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.web.WebOpenTask" flowable:type="CustomWebOpen">
+      <extensionElements>
+        <flowable:field name="resultbrowser">
+          <flowable:string><![CDATA[TCMB]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="type">
+          <flowable:string><![CDATA[CHROME]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="url">
+          <flowable:string><![CDATA[https://www.tcmb.gov.tr/]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="pageload">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="timeout">
+          <flowable:string><![CDATA[2]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="maximize">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078" name="Match image" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.icu.ICUMatchImageTask" flowable:type="CustomICUmatchImage">
+      <extensionElements>
+        <flowable:field name="base64">
+          <flowable:string><![CDATA[/9j/4AAQSkZJRgABAQEAYABgAAD/4RCYRXhpZgAATU0AKgAAAAgABAE7AAIAAAANAAAISodpAAQAAAABAAAIWJydAAEAAAAYAAAQeOocAAcAAAgMAAAAPgAAAAAc6gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE11c2EgU8SwTVNBUgAAAAHqHAAHAAAIDAAACGoAAAAAHOoAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE0AdQBzAGEAIABTADABTQBTAEEAUgAAAP/hCmVodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+DQo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIj48cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSJ1dWlkOmZhZjViZGQ1LWJhM2QtMTFkYS1hZDMxLWQzM2Q3NTE4MmYxYiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIi8+PHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9InV1aWQ6ZmFmNWJkZDUtYmEzZC0xMWRhLWFkMzEtZDMzZDc1MTgyZjFiIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPjxkYzpjcmVhdG9yPjxyZGY6U2VxIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+PHJkZjpsaT5NdXNhIFPEsE1TQVI8L3JkZjpsaT48L3JkZjpTZXE+DQoJCQk8L2RjOmNyZWF0b3I+PC9yZGY6RGVzY3JpcHRpb24+PC9yZGY6UkRGPjwveDp4bXBtZXRhPg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8P3hwYWNrZXQgZW5kPSd3Jz8+/9sAQwAHBQUGBQQHBgUGCAcHCAoRCwoJCQoVDxAMERgVGhkYFRgXGx4nIRsdJR0XGCIuIiUoKSssKxogLzMvKjInKisq/9sAQwEHCAgKCQoUCwsUKhwYHCoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq/8AAEQgAJwCQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5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]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="returnx">
+          <flowable:string><![CDATA[xPos]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="returny">
+          <flowable:string><![CDATA[yPos]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="timeout">
+          <flowable:string><![CDATA[5]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-37C93ADD-FD30-41F3-968A-9C4F16F94816" name="Save screen capture TCMB Goruntu" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.icu.ICUSaveScreenCaptureTask" flowable:type="CustomICUsaveScreenCapture">
+      <extensionElements>
+        <flowable:field name="fileName">
+          <flowable:string><![CDATA[C:\RobustaTemps\screenCapture2.png]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-9F42483D-EDB2-4B97-9734-8DE9F5FB6827" name="Mouse Tikla Banka Hakkinda" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.kmr.KMRMouseTask" flowable:type="CustomKMRmouse">
+      <extensionElements>
+        <flowable:field name="action">
+          <flowable:string><![CDATA[LEFT_CLICK]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="x">
+          <flowable:expression><![CDATA[${xPos}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="y">
+          <flowable:expression><![CDATA[${yPos}]]></flowable:expression>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-1B1E8536-CD63-4621-9414-A13DB6DAADE4" name="Open Edevlet" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.web.WebOpenTask" flowable:type="CustomWebOpen">
+      <extensionElements>
+        <flowable:field name="resultbrowser">
+          <flowable:string><![CDATA[edevlet]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="type">
+          <flowable:string><![CDATA[CHROME]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="url">
+          <flowable:string><![CDATA[https://www.turkiye.gov.tr/]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="pageload">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="timeout">
+          <flowable:string><![CDATA[2]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="maximize">
+          <flowable:string><![CDATA[true]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-13F4DC79-76F2-421F-BBB1-18802C67562E" name="Match text" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.icu.ICUMatchTextTask" flowable:type="CustomICUmatchText">
+      <extensionElements>
+        <flowable:field name="text">
+          <flowable:string><![CDATA[Kurumlar]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="returnx">
+          <flowable:string><![CDATA[xpozisyon]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="returny">
+          <flowable:string><![CDATA[ypozisyon]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="lang">
+          <flowable:string><![CDATA[TUR]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="timeout">
+          <flowable:string><![CDATA[5]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-A4486D1F-4094-4640-8D0B-7F0A6FC4CCDB" name="Mouse Tikla Keşfet" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.kmr.KMRMouseTask" flowable:type="CustomKMRmouse">
+      <extensionElements>
+        <flowable:field name="action">
+          <flowable:string><![CDATA[LEFT_CLICK]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="x">
+          <flowable:expression><![CDATA[${xpozisyon}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="y">
+          <flowable:expression><![CDATA[${ypozisyon}]]></flowable:expression>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-DD9A15C1-FE17-4D2A-B12E-B69B60F3DD90" name="Close  edevlet" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.web.WebCloseTask" flowable:type="CustomWebClose">
+      <extensionElements>
+        <flowable:field name="browserId">
+          <flowable:expression><![CDATA[${edevlet}]]></flowable:expression>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-DDE3630C-C563-4487-97CC-D5813C04E61B" name="Close MB" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.web.WebCloseTask" flowable:type="CustomWebClose">
+      <extensionElements>
+        <flowable:field name="browserId">
+          <flowable:expression><![CDATA[${TCMB}]]></flowable:expression>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-DB58A76C-590B-483D-8317-BAE070D9FDDB" sourceRef="sid-32AFDA4F-7CC1-4AE2-ABCB-462FD3EA0C3D" targetRef="sid-37C93ADD-FD30-41F3-968A-9C4F16F94816"></sequenceFlow>
+    <sequenceFlow id="sid-BF746913-2AC7-4F96-8332-D7410B9FB20C" sourceRef="sid-37C93ADD-FD30-41F3-968A-9C4F16F94816" targetRef="sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078"></sequenceFlow>
+    <sequenceFlow id="sid-A2CA2D31-9F49-4DAB-8A3D-535FCE4D8D01" sourceRef="sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078" targetRef="sid-9F42483D-EDB2-4B97-9734-8DE9F5FB6827"></sequenceFlow>
+    <sequenceFlow id="sid-02BB3DAB-FC48-42AA-BDBD-0855ADBD0209" sourceRef="sid-9F42483D-EDB2-4B97-9734-8DE9F5FB6827" targetRef="sid-1B1E8536-CD63-4621-9414-A13DB6DAADE4"></sequenceFlow>
+    <sequenceFlow id="sid-E32BFBD3-9610-43B5-AB19-0F599639C8C6" sourceRef="sid-1B1E8536-CD63-4621-9414-A13DB6DAADE4" targetRef="sid-13F4DC79-76F2-421F-BBB1-18802C67562E"></sequenceFlow>
+    <sequenceFlow id="sid-59EBF0EF-4BE6-465F-95BA-66B0882A6C13" sourceRef="sid-13F4DC79-76F2-421F-BBB1-18802C67562E" targetRef="sid-A4486D1F-4094-4640-8D0B-7F0A6FC4CCDB"></sequenceFlow>
+    <sequenceFlow id="sid-62FCED69-0E26-449D-9433-2A04E8024B7A" sourceRef="sid-A4486D1F-4094-4640-8D0B-7F0A6FC4CCDB" targetRef="sid-DD9A15C1-FE17-4D2A-B12E-B69B60F3DD90"></sequenceFlow>
+    <sequenceFlow id="sid-35FB5E62-EC52-4D90-BEDB-73EF41778984" sourceRef="sid-DD9A15C1-FE17-4D2A-B12E-B69B60F3DD90" targetRef="sid-DDE3630C-C563-4487-97CC-D5813C04E61B"></sequenceFlow>
+    <startEvent id="sid-83D3DC6E-BA3F-4B5E-9EE8-2D9CA12F658A" flowable:formFieldValidation="true"></startEvent>
+    <serviceTask id="sid-225D8F19-4C9F-4F8A-97D5-42B11F588D30" name="Open" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.pdf.PDFOpenTask" flowable:type="CustomPDFopen">
+      <extensionElements>
+        <flowable:field name="fileName">
+          <flowable:string><![CDATA[C:\RobustaTemps\PDFWorks\C:\RobustaTemps\Robusta RPA Robusta Akademi.pdf]]></flowable:string>
+        </flowable:field>
+        <flowable:field name="resultpdfId">
+          <flowable:string><![CDATA[RobustaAkademipdf]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="sid-4091971C-78A3-4A90-B561-223964F80694" name="Export images" flowable:async="true" flowable:exclusive="false" flowable:class="com.robusta.robot.pdf.PDFExportImagesTask" flowable:type="CustomPDFexportImages">
+      <extensionElements>
+        <flowable:field name="pdfId">
+          <flowable:expression><![CDATA[${RobustaAkademipdf}]]></flowable:expression>
+        </flowable:field>
+        <flowable:field name="outputPath">
+          <flowable:string><![CDATA[C:\RobustaTemps\PDFWorks]]></flowable:string>
+        </flowable:field>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="sid-2788B7EB-51D7-44D7-AE38-E22F89F2905A" sourceRef="sid-83D3DC6E-BA3F-4B5E-9EE8-2D9CA12F658A" targetRef="sid-225D8F19-4C9F-4F8A-97D5-42B11F588D30"></sequenceFlow>
+    <sequenceFlow id="sid-046D2A7A-28A0-4FBB-A710-9C391A639908" sourceRef="sid-225D8F19-4C9F-4F8A-97D5-42B11F588D30" targetRef="sid-4091971C-78A3-4A90-B561-223964F80694"></sequenceFlow>
+    <endEvent id="sid-52954F4C-D533-4C9F-95D1-AAEF75ECC9B7"></endEvent>
+    <sequenceFlow id="sid-82C53B63-6556-4A15-BDBA-9D81C430B521" sourceRef="sid-4091971C-78A3-4A90-B561-223964F80694" targetRef="sid-52954F4C-D533-4C9F-95D1-AAEF75ECC9B7"></sequenceFlow>
+    <textAnnotation id="sid-67BD1B86-292A-48B8-BCC6-8F748BF78D65">
+      <text>Banka Hakkında resminin koordinatını bulup aç</text>
+    </textAnnotation>
+    <association id="sid-0CF86FEB-7218-411B-9466-3DCDAF53E28F" sourceRef="sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078" targetRef="sid-67BD1B86-292A-48B8-BCC6-8F748BF78D65" associationDirection="None"></association>
+    <textAnnotation id="sid-4A5411AF-51FF-40C6-91DC-9B8C79EAB121">
+      <text>Keşfet Yazisinin koordinatlarini bul
+</text>
+    </textAnnotation>
+    <association id="sid-7E5D3436-D3CD-4350-A219-C7DD58715472" sourceRef="sid-13F4DC79-76F2-421F-BBB1-18802C67562E" targetRef="sid-4A5411AF-51FF-40C6-91DC-9B8C79EAB121" associationDirection="None"></association>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Musa3011">
+    <bpmndi:BPMNPlane bpmnElement="Musa3011" id="BPMNPlane_Musa3011">
+      <bpmndi:BPMNShape bpmnElement="sid-32AFDA4F-7CC1-4AE2-ABCB-462FD3EA0C3D" id="BPMNShape_sid-32AFDA4F-7CC1-4AE2-ABCB-462FD3EA0C3D">
+        <omgdc:Bounds height="80.0" width="100.0" x="151.0" y="128.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078" id="BPMNShape_sid-830E8D07-14EE-46DB-910E-D4A3ADDF2078">
+        <omgdc:Bounds height="80.00000000000001" width="99.99999999999994" x="425.92592467223886" y="127.99999999999999"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-37C93ADD-FD30-41F3-968A-9C4F16F94816" id="BPMNShape_sid-37C93ADD-FD30-41F3-968A-9C4F16F94816">
+        <omgdc:Bounds height="80.0" width="100.0" x="300.0" y="133.3333280351429"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-9F42483D-EDB2-4B97-9734-8DE9F5FB6827" id="BPMNShape_sid-9F42483D-EDB2-4B97-9734-8DE9F5FB6827">
+        <omgdc:Bounds height="80.0" width="100.0" x="566.6666441493574" y="128.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-1B1E8536-CD63-4621-9414-A13DB6DAADE4" id="BPMNShape_sid-1B1E8536-CD63-4621-9414-A13DB6DAADE4">
+        <omgdc:Bounds height="80.0" width="100.0" x="699.9999721845002" y="133.3333280351429"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-13F4DC79-76F2-421F-BBB1-18802C67562E" id="BPMNShape_sid-13F4DC79-76F2-421F-BBB1-18802C67562E">
+        <omgdc:Bounds height="80.0" width="100.0" x="833.3333308804673" y="129.6296292480727"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A4486D1F-4094-4640-8D0B-7F0A6FC4CCDB" id="BPMNShape_sid-A4486D1F-4094-4640-8D0B-7F0A6FC4CCDB">
+        <omgdc:Bounds height="80.0" width="100.00000000000023" x="966.666628254786" y="133.3333280351429"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-DD9A15C1-FE17-4D2A-B12E-B69B60F3DD90" id="BPMNShape_sid-DD9A15C1-FE17-4D2A-B12E-B69B60F3DD90">
+        <omgdc:Bounds height="80.0" width="100.00000000000011" x="966.6666282547861" y="266.1728386049717"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-DDE3630C-C563-4487-97CC-D5813C04E61B" id="BPMNShape_sid-DDE3630C-C563-4487-97CC-D5813C04E61B">
+        <omgdc:Bounds height="80.0" width="100.0" x="851.8518493444777" y="259.2592584961454"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-67BD1B86-292A-48B8-BCC6-8F748BF78D65" id="BPMNShape_sid-67BD1B86-292A-48B8-BCC6-8F748BF78D65">
+        <omgdc:Bounds height="78.10559878024634" width="166.00892909277587" x="265.47255126583804" y="14.795635587791736"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-0CF86FEB-7218-411B-9466-3DCDAF53E28F" id="BPMNShape_sid-0CF86FEB-7218-411B-9466-3DCDAF53E28F">
+        <omgdc:Bounds height="77.67966371204116" width="140.16486655891492" x="285.13487401352353" y="62.263198629689875"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-4A5411AF-51FF-40C6-91DC-9B8C79EAB121" id="BPMNShape_sid-4A5411AF-51FF-40C6-91DC-9B8C79EAB121">
+        <omgdc:Bounds height="63.52201770051202" width="183.4676539716079" x="658.2661451986962" y="14.56440189631776"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7E5D3436-D3CD-4350-A219-C7DD58715472" id="BPMNShape_sid-7E5D3436-D3CD-4350-A219-C7DD58715472">
+        <omgdc:Bounds height="86.61694536795221" width="155.21389523639232" x="677.5420909033568" y="54.788051674409694"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-83D3DC6E-BA3F-4B5E-9EE8-2D9CA12F658A" id="BPMNShape_sid-83D3DC6E-BA3F-4B5E-9EE8-2D9CA12F658A">
+        <omgdc:Bounds height="30.0" width="30.0" x="169.05555539203118" y="378.2716039425897"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-225D8F19-4C9F-4F8A-97D5-42B11F588D30" id="BPMNShape_sid-225D8F19-4C9F-4F8A-97D5-42B11F588D30">
+        <omgdc:Bounds height="80.0" width="100.00000000000003" x="215.3518514048852" y="351.8518508161973"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-4091971C-78A3-4A90-B561-223964F80694" id="BPMNShape_sid-4091971C-78A3-4A90-B561-223964F80694">
+        <omgdc:Bounds height="80.0" width="100.0" x="357.9444446079689" y="351.8518508161973"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-52954F4C-D533-4C9F-95D1-AAEF75ECC9B7" id="BPMNShape_sid-52954F4C-D533-4C9F-95D1-AAEF75ECC9B7">
+        <omgdc:Bounds height="28.0" width="28.0" x="502.9444446079689" y="377.8518508161973"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-BF746913-2AC7-4F96-8332-D7410B9FB20C" id="BPMNEdge_sid-BF746913-2AC7-4F96-8332-D7410B9FB20C">
+        <omgdi:waypoint x="399.95000000000005" y="171.21568305892987"></omgdi:waypoint>
+        <omgdi:waypoint x="425.9259246722386" y="170.1155273312368"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-2788B7EB-51D7-44D7-AE38-E22F89F2905A" id="BPMNEdge_sid-2788B7EB-51D7-44D7-AE38-E22F89F2905A">
+        <omgdi:waypoint x="199.00332213215057" y="393.00968406852024"></omgdi:waypoint>
+        <omgdi:waypoint x="215.35185140488213" y="392.7241743062133"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-82C53B63-6556-4A15-BDBA-9D81C430B521" id="BPMNEdge_sid-82C53B63-6556-4A15-BDBA-9D81C430B521">
+        <omgdi:waypoint x="457.8944446079689" y="391.8518508161973"></omgdi:waypoint>
+        <omgdi:waypoint x="502.9444446079689" y="391.8518508161973"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-E32BFBD3-9610-43B5-AB19-0F599639C8C6" id="BPMNEdge_sid-E32BFBD3-9610-43B5-AB19-0F599639C8C6">
+        <omgdi:waypoint x="799.9499721845001" y="171.94444125418528"></omgdi:waypoint>
+        <omgdi:waypoint x="833.3333308804665" y="171.01712714224936"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-046D2A7A-28A0-4FBB-A710-9C391A639908" id="BPMNEdge_sid-046D2A7A-28A0-4FBB-A710-9C391A639908">
+        <omgdi:waypoint x="315.30185140488527" y="391.8518508161973"></omgdi:waypoint>
+        <omgdi:waypoint x="357.9444446079139" y="391.8518508161973"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7E5D3436-D3CD-4350-A219-C7DD58715472" id="BPMNEdge_sid-7E5D3436-D3CD-4350-A219-C7DD58715472">
+        <omgdi:waypoint x="833.3333308804673" y="141.7271836467836"></omgdi:waypoint>
+        <omgdi:waypoint x="719.173055010462" y="78.03641959682979"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-59EBF0EF-4BE6-465F-95BA-66B0882A6C13" id="BPMNEdge_sid-59EBF0EF-4BE6-465F-95BA-66B0882A6C13">
+        <omgdi:waypoint x="933.2833308804672" y="171.01712778037697"></omgdi:waypoint>
+        <omgdi:waypoint x="966.666628254786" y="171.9444406154189"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A2CA2D31-9F49-4DAB-8A3D-535FCE4D8D01" id="BPMNEdge_sid-A2CA2D31-9F49-4DAB-8A3D-535FCE4D8D01">
+        <omgdi:waypoint x="525.8759246722389" y="168.0"></omgdi:waypoint>
+        <omgdi:waypoint x="566.6666441492804" y="168.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-DB58A76C-590B-483D-8317-BAE070D9FDDB" id="BPMNEdge_sid-DB58A76C-590B-483D-8317-BAE070D9FDDB">
+        <omgdi:waypoint x="250.9499999999997" y="169.78791768694893"></omgdi:waypoint>
+        <omgdi:waypoint x="299.99999999999994" y="171.54362064079965"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0CF86FEB-7218-411B-9466-3DCDAF53E28F" id="BPMNEdge_sid-0CF86FEB-7218-411B-9466-3DCDAF53E28F">
+        <omgdi:waypoint x="425.9259246722388" y="140.28989488625155"></omgdi:waypoint>
+        <omgdi:waypoint x="340.3016687050607" y="92.85123436803808"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-62FCED69-0E26-449D-9433-2A04E8024B7A" id="BPMNEdge_sid-62FCED69-0E26-449D-9433-2A04E8024B7A">
+        <omgdi:waypoint x="1016.6666282547861" y="213.28332803514292"></omgdi:waypoint>
+        <omgdi:waypoint x="1016.6666282547861" y="266.1728386049717"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-02BB3DAB-FC48-42AA-BDBD-0855ADBD0209" id="BPMNEdge_sid-02BB3DAB-FC48-42AA-BDBD-0855ADBD0209">
+        <omgdi:waypoint x="666.6166441493568" y="169.9979980945587"></omgdi:waypoint>
+        <omgdi:waypoint x="699.9999721845002" y="171.33332994249153"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-35FB5E62-EC52-4D90-BEDB-73EF41778984" id="BPMNEdge_sid-35FB5E62-EC52-4D90-BEDB-73EF41778984">
+        <omgdi:waypoint x="966.6666282547851" y="303.16208503542157"></omgdi:waypoint>
+        <omgdi:waypoint x="951.8018493444775" y="302.2670013121259"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
